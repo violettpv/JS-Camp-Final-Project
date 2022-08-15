@@ -1,5 +1,3 @@
-console.log("i am alive");
-
 const slide = document.getElementsByClassName('slide')[0];
 const title = document.getElementById('slideshow-title');
 const prev = document.getElementsByClassName('prev')[0];
@@ -36,6 +34,19 @@ function changeSlide(action) {
     }
 }
 
+let sections = [];
+let findSections = document.getElementsByClassName('sections');
+for (let i = 0; i < findSections.length; i++) {
+    sections.push(findSections[i]);
+}
+sections.push(document.getElementsByTagName('header')[0]);
+function changeMode() {
+    sections.forEach(section => {
+       section.classList.toggle('dark-mode');
+    });
+}
+
 function browseAllButton() {
 
 }
+

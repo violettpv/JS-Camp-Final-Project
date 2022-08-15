@@ -15,7 +15,9 @@
         <div><a href="#about-section">About me</a></div>
         <div><a href="#portfolio-section">Portfolio</a></div>
         <div>
-            <div class="header-logo">JD</div>
+            <div class="header-logo" onclick="changeMode()">JD
+                <span class="header-tooltiptext">Click to change color mode</span>
+            </div>
         </div>
         <div><a href="#blog-section">My blog</a></div>
         <div><a href="#contacts-section">Contact me</a></div>
@@ -184,7 +186,61 @@
     <h3 class="title-underline"><span class="elem-bg-color"><b>&times;&times;&times;</b></span></h3>
     <p class="section-description">News from my home</p>
 
+    <div class="blog-section__content">
+        <div class="blog-section__post">
+            <div class="blog-section__post-img-frame">
+                <div class="blog-section__post-img"></div>
+            </div>
+            <div class="blog-section__post-description">
+                <div class="blog-section__post-name">The Magic Wheel</div>
+                <div class="blog-section__post-info">
+                    <div class="blog-section__post-date">July 28, 2014 // Admin // Fun, Travel, Trends</div>
+                    <div class="blog-section__post-responses">1 response</div>
+                </div>
+                <hr class="section-hr">
+                <div class="blog-section__post-text">
+                    It’s not it to understand them in the objects we’re playing. Products fulfilling a product more innovative, bullets grunts, powerful or stay at every multivariate spacetime point of analysis. People have enormous serial correlation. Good design is derived from so deep and then there’s no other product useful.
+                    <a class="blog-section__more-btn">(More...)</a>
+                </div>
+            </div>
+        </div>
 
+        <div class="blog-section__post">
+            <div class="blog-section__post-img-frame">
+                <div class="blog-section__post-img"></div>
+            </div>
+            <div class="blog-section__post-description">
+                <div class="blog-section__post-name">The lonely road</div>
+                <div class="blog-section__post-info">
+                    <div class="blog-section__post-date">July 28, 2014 // Admin // Fun, Travel, Trends, Web Design</div>
+                    <div class="blog-section__post-responses">3 responses</div>
+                </div>
+                <hr class="section-hr">
+                <div class="blog-section__post-text">
+                    If you’ve studied design at all, you’ve probably encountered Lorem Ipsum placeholder text at some point. Anywhere there is text, but the meaning of that text isn’t particularly important, you might see Lorem Ipsum.
+                    <a class="blog-section__more-btn">(More...)</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="blog-section__post">
+            <div class="blog-section__post-img-frame">
+                <div class="blog-section__post-img"></div>
+            </div>
+            <div class="blog-section__post-description">
+                <div class="blog-section__post-name">I love gasoline smell</div>
+                <div class="blog-section__post-info">
+                    <div class="blog-section__post-date">July 28, 2014 // Admin // Fun, Trends, Web Design</div>
+                    <div class="blog-section__post-responses">No responses</div>
+                </div>
+                <hr class="section-hr">
+                <div class="blog-section__post-text">
+                    Many of the content, and often about their precious turfpossessed selves and principles are shortcomings of seeing and colors to cover up a paucity of design. Zero out your interface. I think that are deep and profound indeed, these tasks and showing.
+                    <a class="blog-section__more-btn">(More...)</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="section-browse">
         <hr class="section-hr section-hr-long">
@@ -198,6 +254,16 @@
     <p class="section-description">I'll be glad to answer your questions!</p>
 
     <div class="contacts-section__form-container">
+        <form action="">
+            <input type="text" id="fname" name="firstname" placeholder="Name">
+            <input type="text" id="email" name="email-address" placeholder="Email">
+            <input type="text" id="subj" name="subject" placeholder="Subject">
+
+            <textarea id="msg" name="message" placeholder="Your message" style="height:200px"></textarea>
+
+            <input type="submit" value="Send Message">
+        </form>
+
 
     </div>
 
@@ -206,22 +272,43 @@
         <hr class="section-hr section-hr-white">
 
         <div class="contacts-section__social-icons">
-            <div class="contacts-section__icon-circle">
-                <i class="fa fa-twitter social-icon" style="font-size: 40px"></i>
+            <div class="contacts-section__circle">
+                <div class="contacts-section__border">
+                    <a href="https://twitter.com/violettpv3" target="_blank">
+                        <i class="fa fa-twitter" style="font-size: 34px; color: #383a3c;"></i>
+                    </a>
+                </div>
             </div>
-
-
-
-<!--            <i class="fa fa-facebook-square" style="font-size: 40px"></i>-->
-<!--            <i class="fa fa-github" style="font-size: 40px"></i>-->
-<!--            <i class="fa fa-pinterest" style="font-size: 40px"></i>-->
-<!--            <i class="fa fa-linkedin" style="font-size: 40px"></i>-->
+            <div class="contacts-section__circle">
+                <div class="contacts-section__border">
+                    <a href="https://www.facebook.com/violettpv" target="_blank">
+                        <i class="fa fa-facebook-square" style="font-size: 34px; color: #383a3c;"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="contacts-section__circle">
+                <div class="contacts-section__border">
+                    <a href="https://github.com/violettpv" target="_blank">
+                        <i class="fa fa-github" style="font-size: 34px; color: #383a3c;"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="contacts-section__circle">
+                <div class="contacts-section__border">
+                    <a href="https://www.pinterest.com/violettpv/" target="_blank">
+                        <i class="fa fa-pinterest" style="font-size: 34px; color: #383a3c;"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="contacts-section__circle">
+                <div class="contacts-section__border">
+                    <a href="https://www.linkedin.com/in/violettpv/" target="_blank">
+                        <i class="fa fa-linkedin" style="font-size: 34px; color: #383a3c;"></i>
+                    </a>
+                </div>
+            </div>
         </div>
-
     </div>
-
-
-
 </div>
 
 <script src="script.js"></script>
