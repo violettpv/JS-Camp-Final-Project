@@ -8,16 +8,23 @@
     <link rel="stylesheet" href="css/output.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<div class="loader">
-    <div class="animation">
-        <div class="anim-circle"></div>
-        <div class="anim-circle"></div>
-        <div class="anim-circle"></div>
-        <div class="anim-circle"></div>
-        <div class="anim-circle"></div>
-    </div>
-</div>
+
+<!--<div class="afk">-->
+<!--    <p>Ви ще тут?</p>-->
+<!--    <button onclick="setAfk(false)">Так</button>-->
+<!--</div>-->
+
+<!--<div class="loader">-->
+<!--    <div class="animation">-->
+<!--        <div class="anim-circle"></div>-->
+<!--        <div class="anim-circle"></div>-->
+<!--        <div class="anim-circle"></div>-->
+<!--        <div class="anim-circle"></div>-->
+<!--        <div class="anim-circle"></div>-->
+<!--    </div>-->
+<!--</div>-->
 <script src="loader.js"></script>
+
 <body>
 <header>
     <nav>
@@ -31,6 +38,10 @@
         <div><a href="#blog-section">My blog</a></div>
         <div><a href="#contacts-section">Contact me</a></div>
     </nav>
+
+    <div class="progress-container">
+        <div class="progress-bar" id="bar"></div>
+    </div>
 </header>
 
 <div id="slider-section" class="sections">

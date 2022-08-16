@@ -68,6 +68,43 @@ body {
   background-color: #51555c;
 }
 
+/*region AfkScreen*/
+.afk {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(245, 245, 245, 0.5);
+  z-index: 999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.afk p {
+  font-size: 30px;
+  font-family: RobotoSlab, sans-serif;
+  color: black;
+  font-weight: bold;
+}
+.afk button {
+  border: 2px solid #8d5b3b;
+  background-color: #e18967;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  font-size: 18px;
+  margin: 10px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+.afk button:hover {
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+/*endregion AfkScreen*/
 /*region Loader*/
 .loader {
   position: fixed;
@@ -136,6 +173,9 @@ body {
 .dark-mode nav a:hover {
   color: #76b9b9 !important;
 }
+.dark-mode .progress-bar {
+  background-color: whitesmoke !important;
+}
 .dark-mode .about-section__title, .dark-mode .portfolio-section__title, .dark-mode .blog-section__title, .dark-mode .contacts-section__title {
   color: #f6edd8;
   text-shadow: 2px 2px 0 #3a3a3a, 4px 4px 0 #f6edd8;
@@ -196,7 +236,12 @@ body {
   #contacts-section .section-description {
     color: #f6edd8;
   }
+  /*region Header*/
   header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     position: sticky;
     top: 0;
     z-index: 50;
@@ -207,6 +252,7 @@ body {
     box-shadow: 0 1px 3px 2px rgba(0, 0, 0, 0.3);
   }
   header nav {
+    width: 360px;
     position: sticky;
     top: 0;
     display: flex;
@@ -241,6 +287,9 @@ body {
     font-family: SeasideResortNF, sans-serif;
     color: #f6edd8;
   }
+  .header-logo:hover .header-tooltiptext {
+    visibility: visible;
+  }
   .header-tooltiptext {
     visibility: hidden;
     width: 120px;
@@ -255,9 +304,17 @@ body {
     position: absolute;
     z-index: 1;
   }
-  .header-logo:hover .header-tooltiptext {
-    visibility: visible;
+  .progress-container {
+    width: 100%;
+    height: 5px;
+    background-color: transparent;
   }
+  .progress-bar {
+    width: 0;
+    height: 5px;
+    background-color: #395B64;
+  }
+  /*endregion Header*/
   /*#region SliderSection*/
   #slider-section {
     display: flex;
