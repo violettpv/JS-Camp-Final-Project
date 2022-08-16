@@ -58,6 +58,29 @@ function browseAllButton() {
 
 }
 
+// API
+async function getWeather(lat = 50.450001, lon = 30.523333) {
+    let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=b85e521716c4a0f78aa64cb1d4fa7d69`;
+    let res = await fetch(url).then(response => response.json());
+
+    let data = {
+        temp : res.main.temp - 273.15,
+        wind : res.wind.speed,
+        humidity : res.main.humidity,
+        city : res.name,
+        country : res.sys.country,
+        description : res.weather[0].description
+    }
+
+    document.getElementById('city').innerHTML = data.city;
+    document.getElementById('country').innerHTML = data.country;
+    document.getElementById('temperature').innerHTML = `${Math.round(data.temp)}&deg;C`;
+    document.getElementById('wind').innerHTML = `${Math.round(data.wind)} m/s`;
+    document.getElementById('humidity').innerHTML = `${Math.round(data.humidity)}%`;
+    document.getElementById('weather-description').innerHTML = data.description;
+}
+getWeather();
+
 // User activity
 let startTime;
 let isAfk = false;
@@ -92,8 +115,8 @@ function afk(timeMs, callback) {
 }
 
 const afkScreen = document.getElementsByClassName("afk")[0];
-
-afk(60000, () => {
+// 60000
+afk(6000000, () => {
     setTimeout(() => {
         if (isAfk) {
             window.close();
