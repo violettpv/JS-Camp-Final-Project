@@ -44,8 +44,11 @@ body {
   color: black;
 }
 .sections {
-  border-bottom: 1px solid #bbbbbb;
-  background: url("../pics/noisy.png") repeat;
+  border-bottom: 1px solid #919191;
+  background-image: url("../pics/noisy.png"), url("../pics/sewing_stitch.png"), url("../pics/sewing_stitch.png");
+  background-repeat: repeat, repeat-x, repeat-x;
+  background-position: left top, left top, left bottom;
+  //image-rendering: pixelated;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -69,6 +72,67 @@ body {
 #contacts-section {
   background-color: $main-contacts-color;
 }
+
+/*region Loader*/
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: whitesmoke url("../pics/noisy.png") repeat;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+@keyframes scaling{
+  0%, 100%{
+    transform: scale(0.2);
+    background-color: $main-contacts-color;
+  }
+  40%{
+    transform: scale(1);
+    background-color: $main-slider-color;
+  }
+  50%{
+    transform: scale(1);
+    background-color: $main-portfolio-color;
+  }
+}
+
+.anim-circle {
+  height: 25px;
+  width: 25px;
+  border-radius:50%;
+  transform: scale(0);
+  //background-color:red;
+  animation: scaling 2.5s ease-in-out infinite;
+  display: inline-block;
+  margin:.5rem;
+}
+
+.anim-circle {
+  &:nth-child(0){
+    animation-delay:0s;
+  }
+  &:nth-child(1){
+    animation-delay:0.2s;
+  }
+  &:nth-child(2){
+    animation-delay:0.4s;
+  }
+  &:nth-child(3){
+    animation-delay:0.6s;
+  }
+  &:nth-child(4){
+    animation-delay:0.8s;
+  }
+  &:nth-child(5){
+    animation-delay:1s;
+  }
+}
+/*endregion Loader*/
 
 /*region DarkMode*/
 .dark-mode {
@@ -150,28 +214,15 @@ body {
     }
   }
 
-  /*=======HR==========*/
-  //hr {
-  //  border: none;
-  //  border-top: 1px dotted #f00;
-  //  color: #fff;
-  //  background-color: #fff;
-  //  height: 1px;
-  //  width: 100%;
-  //}
-
-  //#strecthing-line {
-  //  position: absolute;
-  //  z-index: 0;
-  //  top: 3.5rem;
-  //}
-  /*=======HR==========*/
-
   header {
     position: sticky;
     top: 0;
     z-index: 50;
-    background: $main-slider-color url("../pics/noisy.png") repeat;
+    background-color: $main-slider-color;
+    background-image: url("../pics/noisy.png"), url("../pics/sewing_stitch.png");
+    background-repeat: repeat, repeat-x;
+    background-position: left top, left bottom;
+    //image-rendering: pixelated;
     box-shadow: 0 1px 3px 2px rgba(0, 0, 0, 0.3);
 
     nav {
@@ -197,6 +248,7 @@ body {
 
     }
   }
+
   .header-logo {
     position: relative;
     z-index: 5;
@@ -249,6 +301,29 @@ body {
     font-family: SeasideResortNF, sans-serif;
     color: $nav-color;
     letter-spacing: 4px;
+  }
+
+  .slider-section__ribbon-dots {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+  }
+  .slider-section__dots {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin: 25px 10px 0 10px;
+  }
+  .dot {
+    margin: 10px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: #FFF1CD;
+    box-shadow: gray 1px 1px 0 0;
+
   }
 
   /*#region Ribbon*/
@@ -814,8 +889,7 @@ body {
 
   /*#endregion ContactsSection*/
 
-
-  /* == reused elements: hr, button == */
+  /*#region ReusedElements*/
   .section-hr {
     margin: 5px;
     width: 40px;
@@ -843,7 +917,7 @@ body {
     cursor: pointer;
     font-weight: bold;
   }
-  /* == reused elements: hr, button == */
+  /*#endregion ReusedElements*/
 }
 
 @media only screen and (min-width: 600px) {
@@ -860,7 +934,7 @@ body {
     margin-top: 2rem;
     height: 6rem;
     width: 6rem;
-    font-size: 51px;
+    font-size: 56px;
   }
 
   .slideshow-container {
@@ -874,6 +948,10 @@ body {
     color: $nav-color;
   }
 
+  .slider-section__dots {
+    display: flex;
+  }
+
 }
 
 @media only screen and (min-width: 769px) {
@@ -881,7 +959,7 @@ body {
     margin-top: 3rem;
     height: 7rem;
     width: 7rem;
-    font-size: 58px;
+    font-size: 62px;
   }
 
   .slideshow-container {
@@ -899,5 +977,8 @@ body {
     font-size: 22px;
   }
 
+  .slider-section__dots {
+    display: flex;
+  }
 
 }
