@@ -763,6 +763,28 @@ body {
     font-weight: bold;
   }
   /*#endregion Posts*/
+  .js-scroll {
+    opacity: 0;
+    transition: opacity 500ms;
+  }
+  .js-scroll.scrolled {
+    opacity: 1;
+  }
+  .scrolled.slide-right {
+    animation: slide-in-right 1s ease-in-out both;
+  }
+  @keyframes slide-in-right {
+    0% {
+      -webkit-transform: translateX(100px);
+      transform: translateX(100px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateX(0);
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
   /*#endregion BlogSection*/
   /*#region ContactsSection*/
   #contacts-section .title-underline {
