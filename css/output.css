@@ -198,94 +198,94 @@ body {
 }
 .confetti-piece:nth-child(1) {
   left: 7%;
-  transform: rotate(-67deg);
+  transform: rotate(16deg);
   animation: makeItRain 1000ms infinite ease-out;
-  animation-delay: 32ms;
-  animation-duration: 888ms;
+  animation-delay: 10ms;
+  animation-duration: 783ms;
 }
 .confetti-piece:nth-child(2) {
   left: 14%;
-  transform: rotate(75deg);
+  transform: rotate(50deg);
   animation: makeItRain 1000ms infinite ease-out;
-  animation-delay: 391ms;
-  animation-duration: 1136ms;
+  animation-delay: 360ms;
+  animation-duration: 724ms;
 }
 .confetti-piece:nth-child(3) {
   left: 21%;
-  transform: rotate(47deg);
+  transform: rotate(-1deg);
   animation: makeItRain 1000ms infinite ease-out;
-  animation-delay: 468ms;
-  animation-duration: 715ms;
+  animation-delay: 212ms;
+  animation-duration: 948ms;
 }
 .confetti-piece:nth-child(4) {
   left: 28%;
-  transform: rotate(-12deg);
+  transform: rotate(-35deg);
   animation: makeItRain 1000ms infinite ease-out;
-  animation-delay: 195ms;
-  animation-duration: 1172ms;
+  animation-delay: 4ms;
+  animation-duration: 1168ms;
 }
 .confetti-piece:nth-child(5) {
   left: 35%;
-  transform: rotate(-68deg);
+  transform: rotate(-6deg);
   animation: makeItRain 1000ms infinite ease-out;
-  animation-delay: 156ms;
-  animation-duration: 1108ms;
+  animation-delay: 67ms;
+  animation-duration: 893ms;
 }
 .confetti-piece:nth-child(6) {
   left: 42%;
-  transform: rotate(-61deg);
+  transform: rotate(22deg);
   animation: makeItRain 1000ms infinite ease-out;
-  animation-delay: 416ms;
-  animation-duration: 761ms;
+  animation-delay: 177ms;
+  animation-duration: 727ms;
 }
 .confetti-piece:nth-child(7) {
   left: 49%;
-  transform: rotate(-66deg);
+  transform: rotate(-19deg);
   animation: makeItRain 1000ms infinite ease-out;
-  animation-delay: 159ms;
-  animation-duration: 1116ms;
+  animation-delay: 8ms;
+  animation-duration: 875ms;
 }
 .confetti-piece:nth-child(8) {
   left: 56%;
-  transform: rotate(-34deg);
+  transform: rotate(-50deg);
   animation: makeItRain 1000ms infinite ease-out;
-  animation-delay: 429ms;
-  animation-duration: 879ms;
+  animation-delay: 370ms;
+  animation-duration: 1118ms;
 }
 .confetti-piece:nth-child(9) {
   left: 63%;
-  transform: rotate(-74deg);
+  transform: rotate(-29deg);
   animation: makeItRain 1000ms infinite ease-out;
-  animation-delay: 325ms;
-  animation-duration: 1187ms;
+  animation-delay: 489ms;
+  animation-duration: 834ms;
 }
 .confetti-piece:nth-child(10) {
   left: 70%;
-  transform: rotate(-12deg);
+  transform: rotate(48deg);
   animation: makeItRain 1000ms infinite ease-out;
-  animation-delay: 401ms;
-  animation-duration: 997ms;
+  animation-delay: 292ms;
+  animation-duration: 720ms;
 }
 .confetti-piece:nth-child(11) {
   left: 77%;
-  transform: rotate(-64deg);
+  transform: rotate(25deg);
   animation: makeItRain 1000ms infinite ease-out;
-  animation-delay: 419ms;
-  animation-duration: 994ms;
+  animation-delay: 220ms;
+  animation-duration: 1045ms;
 }
 .confetti-piece:nth-child(12) {
   left: 84%;
-  transform: rotate(41deg);
+  transform: rotate(-69deg);
   animation: makeItRain 1000ms infinite ease-out;
-  animation-delay: 167ms;
-  animation-duration: 1107ms;
+  animation-delay: 25ms;
+  animation-duration: 911ms;
 }
 .confetti-piece:nth-child(13) {
   left: 91%;
-  transform: rotate(79deg);
+  transform: rotate(0deg);
   animation: makeItRain 1000ms infinite ease-out;
-  animation-delay: 215ms;
-  animation-duration: 1083ms;
+  animation-delay: 9ms;
+  animation-duration: 801ms;
 }
 .confetti-piece:nth-child(odd) {
   background: #17d3ff;
@@ -320,6 +320,7 @@ body {
   }
 }
 /*endregion Confetti*/
+/* !!! To change the color mode, click on the page logo in the header */
 /*region DarkMode*/
 .dark-mode {
   background-color: #3a3a3a !important;
@@ -826,13 +827,31 @@ body {
     border-radius: 50%;
     padding: 4px;
     margin: 2px;
-    /* !! change svg color !! */
+    /* TODO !! change svg color !! */
   }
   .portfolio-section__project-name {
     position: relative;
     margin-top: -5px;
     font-size: 14px;
     font-family: RobotoSlab, sans-serif;
+  }
+  .portfolio-section__project-description {
+    opacity: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+    height: 100%;
+    width: 100%;
+    font-size: 12px;
+    font-family: RobotoSlab, sans-serif;
+  }
+  .portfolio-section__project-description:hover {
+    transition: 0.4s ease-in-out;
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.55);
   }
   /*#endregion Projects*/
   /*#endregion PortfolioSection*/
