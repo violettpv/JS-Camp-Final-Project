@@ -826,6 +826,9 @@ $duration: 1000;
   }
   .portfolio-section__project-name {
     position: relative;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: $section-title-color;
     margin-top: -5px;
     font-size: 14px;
     font-family: RobotoSlab, sans-serif;
