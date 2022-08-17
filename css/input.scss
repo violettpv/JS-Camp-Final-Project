@@ -1,4 +1,4 @@
-$main-slider-color: #76b9b9;
+$main-slider-color: #7ababa; /*#76b9b9*/
 $main-about-color: #e1dccc;
 $main-portfolio-color: #e18967;
 $main-blog-color: #dfdcda;
@@ -294,6 +294,13 @@ $duration: 1000;
   .section-browse, {
     color: $nav-color;
   }
+  .section-hr {
+    border-top: 3px solid $nav-color !important;
+  }
+  .section-hr-long {
+    border-color: $nav-color !important;
+  }
+
   .title-underline {
     border-bottom: 2px solid $nav-color;
     span {
@@ -707,9 +714,16 @@ $duration: 1000;
   }
 
   /*#region Tags*/
+  .active-filter {
+    background: $main-slider-color !important;
+    color: $nav-color !important;
+    &:before {
+      border-color: transparent $main-slider-color transparent transparent !important;
+    }
+  }
   .portfolio-section__tags {
     display: flex;
-    //flex-direction: row;
+    flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
@@ -815,13 +829,12 @@ $duration: 1000;
     margin-top: -15px;
 
     img {
-      height: 38px;
-      width: 38px;
+      height: 35px;
+      width: 35px;
       background-color: $content-portfolio-color;
       border-radius: 50%;
       padding: 4px;
       margin: 2px;
-      /* TODO !! change svg color !! */
     }
   }
   .portfolio-section__project-name {
@@ -832,6 +845,8 @@ $duration: 1000;
     margin-top: -5px;
     font-size: 14px;
     font-family: RobotoSlab, sans-serif;
+    text-decoration: none;
+
   }
 
   .portfolio-section__project-description {
@@ -850,7 +865,8 @@ $duration: 1000;
     &:hover {
       transition: 0.4s ease-in-out;
       opacity: 1;
-      background-color: rgba(0, 0, 0, 0.55);
+      background-color: rgba(0, 0, 0, 0.70);
+      color: white;
 
     }
   }

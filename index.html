@@ -157,90 +157,16 @@
     <div class="portfolio-section__content">
         <div class="portfolio-section__tags">
             <div class="portfolio-section__filter-by">Filter by</div>
-            <div><a onclick="">api</a></div>
-            <div><a onclick="">console game</a></div>
-            <div><a onclick="">web</a></div>
-            <div><a onclick="">assignments</a></div>
-            <div><a onclick="">dictionary</a></div>
-            <div><a onclick="">kpi</a></div>
-            <div><a onclick="">bot</a></div>
-            <div><a onclick="">telegram</a></div>
+            <div><a class="tag" onclick="loadProjects('c#')">C#</a></div>
+            <div><a class="tag" onclick="loadProjects('html/css')">HTML/CSS</a></div>
+            <div><a class="tag" onclick="loadProjects('js')">JS</a></div>
+            <div><a class="tag" onclick="loadProjects('node.js')">Node.js</a></div>
+            <div><a class="tag" onclick="loadProjects('bot')">bot</a></div>
+            <div><a class="tag" onclick="loadProjects('telegram')">telegram</a></div>
+            <div><a class="tag" onclick="loadProjects('api')">API</a></div>
         </div>
 
-        <div class="portfolio-section__projects">
-            <div class="portfolio-section__project">
-                <div class="portfolio-section__project-img">
-                    <div class="portfolio-section__project-description"></div>
-                </div>
-                <div class="portfolio-section__project-title">
-                    <div class="portfolio-section__project-icon"><img src="icons_svg/books.svg" alt="books"></div>
-                    <div class="portfolio-section__project-name">*Project name*</div>
-                </div>
-            </div>
-
-            <div class="portfolio-section__project">
-                <div class="portfolio-section__project-img">
-                    <div class="portfolio-section__project-description"></div>
-                </div>
-                <div class="portfolio-section__project-title">
-                    <div class="portfolio-section__project-icon"><img src="icons_svg/books.svg" alt="books"></div>
-                    <div class="portfolio-section__project-name">*Project name*</div>
-                </div>
-            </div>
-
-            <div class="portfolio-section__project">
-                <div class="portfolio-section__project-img">
-                    <div class="portfolio-section__project-description"></div>
-                </div>
-                <div class="portfolio-section__project-title">
-                    <div class="portfolio-section__project-icon"><img src="icons_svg/books.svg" alt="books"></div>
-                    <div class="portfolio-section__project-name">*Project name*</div>
-                </div>
-            </div>
-
-            <div class="portfolio-section__project">
-                <div class="portfolio-section__project-img">
-                    <div class="portfolio-section__project-description"></div>
-                </div>
-                <div class="portfolio-section__project-title">
-                    <div class="portfolio-section__project-icon"><img src="icons_svg/books.svg" alt="books"></div>
-                    <div class="portfolio-section__project-name">*Project name*</div>
-                </div>
-            </div>
-
-            <div class="portfolio-section__project">
-                <div class="portfolio-section__project-img">
-                    <div class="portfolio-section__project-description"></div>
-                </div>
-                <div class="portfolio-section__project-title">
-                    <div class="portfolio-section__project-icon"><img src="icons_svg/books.svg" alt="books"></div>
-                    <div class="portfolio-section__project-name">*Project name*</div>
-                </div>
-            </div>
-
-            <div class="portfolio-section__project">
-                <div class="portfolio-section__project-img">
-                    <div class="portfolio-section__project-description"></div>
-                </div>
-                <div class="portfolio-section__project-title">
-                    <div class="portfolio-section__project-icon"><img src="icons_svg/books.svg" alt="books"></div>
-                    <div class="portfolio-section__project-name">None</div>
-                </div>
-            </div>
-
-<!--            <div class="portfolio-section__project">-->
-<!--                <div class="portfolio-section__project-img">-->
-<!--                    <div class="portfolio-section__project-description"></div>-->
-<!--                </div>-->
-<!--                <div class="portfolio-section__project-title">-->
-<!--                    <div class="portfolio-section__project-icon"><img src="icons_svg/books.svg" alt="books"></div>-->
-<!--                    <div class="portfolio-section__project-name">None</div>-->
-<!--                </div>-->
-<!--            </div>-->
-
-
-
-        </div>
+        <div class="portfolio-section__projects"></div>
 
         <div class="section-browse">
             <hr class="section-hr">
@@ -391,6 +317,7 @@
     </div>
 </div>
 
+<script type="text/javascript" src="projects.json"></script>
 <script src="script.js"></script>
 </body>
 </html>

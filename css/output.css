@@ -1,3 +1,4 @@
+/*#76b9b9*/
 @font-face {
   font-family: "Bazar";
   src: url("../fonts/Bazar.ttf") format("truetype");
@@ -47,7 +48,7 @@ body {
 }
 
 #slider-section {
-  background-color: #76b9b9;
+  background-color: #7ababa;
   height: 100vh;
   min-height: 700px;
 }
@@ -126,7 +127,7 @@ body {
   }
   40% {
     transform: scale(1);
-    background-color: #76b9b9;
+    background-color: #7ababa;
   }
   50% {
     transform: scale(1);
@@ -198,94 +199,94 @@ body {
 }
 .confetti-piece:nth-child(1) {
   left: 7%;
-  transform: rotate(54deg);
+  transform: rotate(74deg);
   animation: makeItRain 1000ms infinite ease-out;
-  animation-delay: 190ms;
-  animation-duration: 798ms;
+  animation-delay: 320ms;
+  animation-duration: 1013ms;
 }
 .confetti-piece:nth-child(2) {
   left: 14%;
-  transform: rotate(-74deg);
+  transform: rotate(4deg);
   animation: makeItRain 1000ms infinite ease-out;
-  animation-delay: 381ms;
-  animation-duration: 1105ms;
+  animation-delay: 105ms;
+  animation-duration: 1056ms;
 }
 .confetti-piece:nth-child(3) {
   left: 21%;
-  transform: rotate(72deg);
+  transform: rotate(-21deg);
   animation: makeItRain 1000ms infinite ease-out;
-  animation-delay: 219ms;
-  animation-duration: 710ms;
+  animation-delay: 451ms;
+  animation-duration: 852ms;
 }
 .confetti-piece:nth-child(4) {
   left: 28%;
-  transform: rotate(25deg);
+  transform: rotate(-34deg);
   animation: makeItRain 1000ms infinite ease-out;
-  animation-delay: 480ms;
-  animation-duration: 950ms;
+  animation-delay: 215ms;
+  animation-duration: 836ms;
 }
 .confetti-piece:nth-child(5) {
   left: 35%;
-  transform: rotate(22deg);
+  transform: rotate(-68deg);
   animation: makeItRain 1000ms infinite ease-out;
-  animation-delay: 16ms;
-  animation-duration: 789ms;
+  animation-delay: 76ms;
+  animation-duration: 708ms;
 }
 .confetti-piece:nth-child(6) {
   left: 42%;
-  transform: rotate(52deg);
+  transform: rotate(26deg);
   animation: makeItRain 1000ms infinite ease-out;
-  animation-delay: 141ms;
-  animation-duration: 971ms;
+  animation-delay: 378ms;
+  animation-duration: 962ms;
 }
 .confetti-piece:nth-child(7) {
   left: 49%;
-  transform: rotate(25deg);
+  transform: rotate(-65deg);
   animation: makeItRain 1000ms infinite ease-out;
-  animation-delay: 433ms;
-  animation-duration: 1161ms;
+  animation-delay: 211ms;
+  animation-duration: 1167ms;
 }
 .confetti-piece:nth-child(8) {
   left: 56%;
-  transform: rotate(7deg);
+  transform: rotate(69deg);
   animation: makeItRain 1000ms infinite ease-out;
-  animation-delay: 429ms;
-  animation-duration: 904ms;
+  animation-delay: 123ms;
+  animation-duration: 1154ms;
 }
 .confetti-piece:nth-child(9) {
   left: 63%;
-  transform: rotate(-18deg);
+  transform: rotate(-42deg);
   animation: makeItRain 1000ms infinite ease-out;
-  animation-delay: 406ms;
-  animation-duration: 785ms;
+  animation-delay: 250ms;
+  animation-duration: 1054ms;
 }
 .confetti-piece:nth-child(10) {
   left: 70%;
-  transform: rotate(28deg);
+  transform: rotate(-70deg);
   animation: makeItRain 1000ms infinite ease-out;
-  animation-delay: 270ms;
-  animation-duration: 1168ms;
+  animation-delay: 20ms;
+  animation-duration: 798ms;
 }
 .confetti-piece:nth-child(11) {
   left: 77%;
-  transform: rotate(80deg);
+  transform: rotate(-30deg);
   animation: makeItRain 1000ms infinite ease-out;
-  animation-delay: 229ms;
-  animation-duration: 903ms;
+  animation-delay: 278ms;
+  animation-duration: 1031ms;
 }
 .confetti-piece:nth-child(12) {
   left: 84%;
-  transform: rotate(7deg);
+  transform: rotate(16deg);
   animation: makeItRain 1000ms infinite ease-out;
-  animation-delay: 0ms;
-  animation-duration: 1158ms;
+  animation-delay: 416ms;
+  animation-duration: 741ms;
 }
 .confetti-piece:nth-child(13) {
   left: 91%;
-  transform: rotate(-78deg);
+  transform: rotate(79deg);
   animation: makeItRain 1000ms infinite ease-out;
-  animation-delay: 195ms;
-  animation-duration: 955ms;
+  animation-delay: 348ms;
+  animation-duration: 1131ms;
 }
 .confetti-piece:nth-child(odd) {
   background: #17d3ff;
@@ -329,7 +330,7 @@ body {
   background: #3a3a3a !important;
 }
 .dark-mode nav a:hover {
-  color: #76b9b9 !important;
+  color: #7ababa !important;
 }
 .dark-mode .progress-bar {
   background-color: whitesmoke !important;
@@ -350,6 +351,12 @@ body {
 }
 .dark-mode .section-browse {
   color: #f6edd8;
+}
+.dark-mode .section-hr {
+  border-top: 3px solid #f6edd8 !important;
+}
+.dark-mode .section-hr-long {
+  border-color: #f6edd8 !important;
 }
 .dark-mode .title-underline {
   border-bottom: 2px solid #f6edd8;
@@ -403,7 +410,7 @@ body {
     position: sticky;
     top: 0;
     z-index: 50;
-    background-color: #76b9b9;
+    background-color: #7ababa;
     background-image: url("../pics/noisy.png"), url("../pics/sewing_stitch.png");
     background-repeat: repeat, repeat-x;
     background-position: left top, left bottom;
@@ -723,8 +730,16 @@ body {
     margin-top: 15px;
   }
   /*#region Tags*/
+  .active-filter {
+    background: #7ababa !important;
+    color: #f6edd8 !important;
+  }
+  .active-filter:before {
+    border-color: transparent #7ababa transparent transparent !important;
+  }
   .portfolio-section__tags {
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
@@ -821,13 +836,12 @@ body {
     margin-top: -15px;
   }
   .portfolio-section__project-icon img {
-    height: 38px;
-    width: 38px;
+    height: 35px;
+    width: 35px;
     background-color: #fbfaf6;
     border-radius: 50%;
     padding: 4px;
     margin: 2px;
-    /* TODO !! change svg color !! */
   }
   .portfolio-section__project-name {
     position: relative;
@@ -837,6 +851,7 @@ body {
     margin-top: -5px;
     font-size: 14px;
     font-family: RobotoSlab, sans-serif;
+    text-decoration: none;
   }
   .portfolio-section__project-description {
     opacity: 0;
@@ -854,7 +869,8 @@ body {
   .portfolio-section__project-description:hover {
     transition: 0.4s ease-in-out;
     opacity: 1;
-    background-color: rgba(0, 0, 0, 0.55);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
   }
   /*#endregion Projects*/
   /*#endregion PortfolioSection*/
@@ -1013,7 +1029,7 @@ body {
     font-weight: bold;
   }
   input[type=button]:hover {
-    background-color: #76b9b9;
+    background-color: #7ababa;
     color: #fbfaf6;
   }
   /*#endregion Form*/

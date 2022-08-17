@@ -37,6 +37,7 @@ function changeSlide(action) {
 }
 
 // Dark mode
+let darkModeForced = false;
 let sections = [];
 let findSections = document.getElementsByClassName('sections');
 for (let i = 0; i < findSections.length; i++) {
@@ -48,14 +49,10 @@ sections.push(document.getElementsByClassName('progress-bar')[0]);
 let isDarkMode = false;
 function changeMode() {
     isDarkMode = !isDarkMode;
+    darkModeForced = true;
     sections.forEach(section => {
        section.classList.toggle('dark-mode');
     });
-}
-
-// Browse all projects
-function browseAllButton() {
-
 }
 
 // Fade in on scroll
@@ -168,7 +165,6 @@ function saveData(data) {
     localStorage.setItem("message", JSON.stringify(data));
 }
 
-
 // API
 async function getWeather(lat = 50.450001, lon = 30.523333) {
     let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=b85e521716c4a0f78aa64cb1d4fa7d69`;
@@ -207,7 +203,7 @@ function afk(timeMs, callback) {
         // == Dark mode ==
         let currentHour = currentTime.getHours();
         if (currentHour >= 21 || currentHour < 6) {
-            if (!isDarkMode) {
+            if (!isDarkMode && !darkModeForced) {
                 changeMode();
             }
         }
@@ -243,22 +239,87 @@ function setAfk (status) {
     }
 }
 
+// Filters & Projects
 const projectsArea = document.getElementsByClassName("portfolio-section__projects")[0];
 function formProjectComponent(data) {
-    return `<div href="${data.url}" class="portfolio-section__project"> <div style="background-image: url("${data.image}");     background-position: center;     background-repeat: no-repeat;     background-size: cover;" class="portfolio-section__project-img"> <div class="portfolio-section__project-description">Date: ${data.description.date}<br>Tech: ${data.description.technologies}<br>Price: ${data.description.price}</div> </div> <div class="portfolio-section__project-title"> <div class="portfolio-section__project-icon"><img src="${data.ico}" alt="books"></div> <div class="portfolio-section__project-name">${data.description.name}</div> </div> </div>`;
+
+    let div = `<div href="${data.url}" class="portfolio-section__project"><div style="background-image: url(${data.image}); background-position: center; background-repeat: no-repeat; background-size: cover;" class="portfolio-section__project-img"><div class="portfolio-section__project-description">Date: ${data.description.date}<br>Tech: ${data.description.technologies}<br>Price: ${data.description.price}</div></div><div class="portfolio-section__project-title"><div class="portfolio-section__project-icon"><img src="${data.ico}" alt="books"></div><a href="${data.url}" target="_blank" class="portfolio-section__project-name">${data.description.name}</a></div></div>`;
+    return div;
 }
 
-// read data from json file
-async function readData() {
-    return await fetch("./projects.json")
-        .then(response => response.json());
-}
-
-readData().then(projectsData => {
-    console.log(projectsData.data);
-    for (let i = 0; i < projectsData.data.length; i++) {
-        projectsArea.innerHTML += formProjectComponent(projectsData.data[i]);
+const tagsArea = document.getElementsByClassName("portfolio-section__tags")[0];
+const divsInTagsArea = tagsArea.getElementsByTagName("div");
+const tagContainers = [];
+for (let i = 0; i < divsInTagsArea.length; i++) {
+    let tmp = divsInTagsArea[i].getElementsByTagName("a");
+    if (tmp.length !== 0) {
+        tagContainers.push(tmp[0]);
     }
-});
+}
+let projectsData = JSON.parse(projectsJson);
+let currentFilter;
+let isUnrolled = false;
+const browseBtn = document.getElementsByClassName("browse-btn")[0];
+function loadProjects(filter = null) {
+    projectsArea.innerHTML = "";
+    if (filter !== null) {
+        tagContainers.forEach(tag => {
+            if (!tag.innerHTML.toLowerCase().includes(filter)) {
+                tag.classList.remove('active-filter');
+            }
+            else if (tag.innerHTML.length !== filter.length) {
+                tag.classList.remove('active-filter');
+            }
+            else if (tag.innerHTML.length === filter.length) {
+                tag.classList.toggle('active-filter');
+            }
+        });
+
+    }
+    for (let i = 0; i < projectsData.data.length; i++) {
+        if (filter === null|| filter === currentFilter || projectsData.data[i].description.technologies.toLowerCase().includes(filter)) {
+            projectsArea.innerHTML += formProjectComponent(projectsData.data[i]);
+        }
+    }
+    if (currentFilter === filter) {
+        currentFilter = null;
+    }
+    else {
+        currentFilter = filter;
+    }
+
+    let projectContainers = projectsArea.getElementsByClassName("portfolio-section__project");
+    for (let i = 0; i < projectContainers.length; i++) {
+        if (i > 5) {
+            projectContainers[i].style.display = "none";
+        }
+    }
+
+    isUnrolled = false;
+    browseBtn.innerHTML = "Browse all";
+}
+loadProjects();
+
+
+function browseAllButton() {
+    let projectContainers = projectsArea.getElementsByClassName("portfolio-section__project");
+    if (!isUnrolled) {
+        for (let i = 0; i < projectContainers.length; i++) {
+            projectContainers[i].style.display = "flex";
+        }
+        isUnrolled = true;
+        browseBtn.innerHTML = "HIDE ALL";
+    }
+    else {
+        for (let i = 0; i < projectContainers.length; i++) {
+            if (i > 5) {
+                projectContainers[i].style.display = "none";
+            }
+        }
+        isUnrolled = false;
+        browseBtn.innerHTML = "BROWSE ALL";
+    }
+}
+
 
 
