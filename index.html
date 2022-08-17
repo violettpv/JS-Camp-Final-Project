@@ -9,10 +9,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
-<!--<div class="afk">-->
-<!--    <p>Ви ще тут?</p>-->
-<!--    <button onclick="setAfk(false)">Так</button>-->
-<!--</div>-->
+<div class="afk">
+    <p>Ви ще тут?</p>
+    <button onclick="setAfk(false)">Так</button>
+</div>
 
 <!--<div class="loader">-->
 <!--    <div class="animation">-->
@@ -23,6 +23,24 @@
 <!--        <div class="anim-circle"></div>-->
 <!--    </div>-->
 <!--</div>-->
+
+<div class="thanks">
+    <div class="confetti-piece"></div>
+    <div class="confetti-piece"></div>
+    <div class="confetti-piece"></div>
+    <div class="confetti-piece"></div>
+    <div class="confetti-piece"></div>
+    <div class="confetti-piece"></div>
+    <div class="confetti-piece"></div>
+    <div class="confetti-piece"></div>
+    <div class="confetti-piece"></div>
+    <div class="confetti-piece"></div>
+    <div class="confetti-piece"></div>
+    <div class="confetti-piece"></div>
+    <div class="confetti-piece"></div>
+    <div class="confetti-text">Дякую за замовлення! З вами скоро зв’яжуться!</div>
+</div>
+
 <script src="loader.js"></script>
 
 <body>
@@ -275,13 +293,19 @@
 
     <div class="contacts-section__form-container">
         <form action="">
+            <span id="fname-error" class="input-error">Invalid input</span>
             <input type="text" id="fname" name="firstname" placeholder="Name">
+
+            <span id="email-error" class="input-error">Invalid input</span>
             <input type="text" id="email" name="email-address" placeholder="Email">
+
+            <span id="subj-error" class="input-error">Invalid input</span>
             <input type="text" id="subj" name="subject" placeholder="Subject">
 
+            <span id="msg-error" class="input-error">Invalid input</span>
             <textarea id="msg" name="message" placeholder="Your message" style="height:200px"></textarea>
 
-            <input type="submit" value="Send Message">
+            <input type="button" onclick="sendMessage()" value="Send Message">
         </form>
     </div>
 

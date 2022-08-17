@@ -75,7 +75,7 @@ body {
 
 /*region AfkScreen*/
 .afk {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -174,6 +174,88 @@ body {
   }
 }
 /*endregion Loader*/
+
+/*region Confetti*/
+$yellow: #ffd300;
+$blue: #17d3ff;
+$pink: #ff4e91;
+
+$duration: 1000;
+
+@function randomNum($min, $max) {
+  $rand: random();
+  $randomNum: $min + floor($rand * (($max - $min) + 1));
+
+  @return $randomNum;
+}
+
+.confetti-text {
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  letter-spacing: 5px;
+  position: relative;
+  font-family: Oswald, sans-serif;
+  color: #205d5d;
+}
+
+.thanks {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(245, 245, 245, 0.50);
+  z-index: 999;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.confetti-piece {
+  position: absolute;
+  width: 8px;
+  height: 16px;
+  background: $yellow;
+  top: 0;
+  opacity: 0;
+
+  @for $i from 1 through 13 {
+    &:nth-child(#{$i}) {
+      left: $i * 7%;
+      transform: rotate(#{randomNum(-80, 80)}deg);
+      animation: makeItRain $duration * 1ms infinite ease-out;
+      animation-delay: #{randomNum(0, $duration * .5)}ms;
+      animation-duration: #{randomNum($duration * .7, $duration * 1.2)}ms
+    }
+  }
+
+  &:nth-child(odd) { background: $blue; }
+  &:nth-child(even) { z-index: 1; }
+
+  &:nth-child(4n) {
+    width: 5px;
+    height: 12px;
+    animation-duration: $duration * 2ms;
+  }
+
+  &:nth-child(3n) {
+    width: 3px;
+    height: 10px;
+    animation-duration: $duration * 2.5ms;
+    animation-delay: $duration * 1ms;
+  }
+
+  &:nth-child(4n-7) { background: $pink; }
+}
+
+@keyframes makeItRain {
+  from { opacity: 0; }
+  50% { opacity: 1; }
+  to { transform: translateY(200px); }
+}
+/*endregion Confetti*/
 
 /*region DarkMode*/
 .dark-mode {
@@ -913,7 +995,7 @@ body {
     }
   }
 
-  input[type=submit] {
+  input[type=button] {
     background-color: $content-portfolio-color;
     color: $section-title-color;
     padding: 12px 20px;
@@ -925,13 +1007,25 @@ body {
     font-weight: bold;
   }
 
-  input[type=submit]:hover {
+  input[type=button]:hover {
     background-color: $main-slider-color;
     color: $content-portfolio-color;
   }
-
-
   /*#endregion Form*/
+
+  .invalid-input {
+    outline: 2px solid red;
+  }
+  .input-error {
+    display: none;
+
+    padding: 4px 8px;
+    background-color: rgba(118, 185, 185, 0.60);
+    border-radius: 4px;
+    color: #cc0000;
+    font-size: 12px;
+    font-family: RobotoSlab, sans-serif;
+  }
 
   .weather-widget {
     display: flex;

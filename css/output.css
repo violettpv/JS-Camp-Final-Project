@@ -70,7 +70,7 @@ body {
 
 /*region AfkScreen*/
 .afk {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -163,6 +163,163 @@ body {
 }
 
 /*endregion Loader*/
+/*region Confetti*/
+.confetti-text {
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  letter-spacing: 5px;
+  position: relative;
+  font-family: Oswald, sans-serif;
+  color: #205d5d;
+}
+
+.thanks {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(245, 245, 245, 0.5);
+  z-index: 999;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.confetti-piece {
+  position: absolute;
+  width: 8px;
+  height: 16px;
+  background: #ffd300;
+  top: 0;
+  opacity: 0;
+}
+.confetti-piece:nth-child(1) {
+  left: 7%;
+  transform: rotate(-67deg);
+  animation: makeItRain 1000ms infinite ease-out;
+  animation-delay: 32ms;
+  animation-duration: 888ms;
+}
+.confetti-piece:nth-child(2) {
+  left: 14%;
+  transform: rotate(75deg);
+  animation: makeItRain 1000ms infinite ease-out;
+  animation-delay: 391ms;
+  animation-duration: 1136ms;
+}
+.confetti-piece:nth-child(3) {
+  left: 21%;
+  transform: rotate(47deg);
+  animation: makeItRain 1000ms infinite ease-out;
+  animation-delay: 468ms;
+  animation-duration: 715ms;
+}
+.confetti-piece:nth-child(4) {
+  left: 28%;
+  transform: rotate(-12deg);
+  animation: makeItRain 1000ms infinite ease-out;
+  animation-delay: 195ms;
+  animation-duration: 1172ms;
+}
+.confetti-piece:nth-child(5) {
+  left: 35%;
+  transform: rotate(-68deg);
+  animation: makeItRain 1000ms infinite ease-out;
+  animation-delay: 156ms;
+  animation-duration: 1108ms;
+}
+.confetti-piece:nth-child(6) {
+  left: 42%;
+  transform: rotate(-61deg);
+  animation: makeItRain 1000ms infinite ease-out;
+  animation-delay: 416ms;
+  animation-duration: 761ms;
+}
+.confetti-piece:nth-child(7) {
+  left: 49%;
+  transform: rotate(-66deg);
+  animation: makeItRain 1000ms infinite ease-out;
+  animation-delay: 159ms;
+  animation-duration: 1116ms;
+}
+.confetti-piece:nth-child(8) {
+  left: 56%;
+  transform: rotate(-34deg);
+  animation: makeItRain 1000ms infinite ease-out;
+  animation-delay: 429ms;
+  animation-duration: 879ms;
+}
+.confetti-piece:nth-child(9) {
+  left: 63%;
+  transform: rotate(-74deg);
+  animation: makeItRain 1000ms infinite ease-out;
+  animation-delay: 325ms;
+  animation-duration: 1187ms;
+}
+.confetti-piece:nth-child(10) {
+  left: 70%;
+  transform: rotate(-12deg);
+  animation: makeItRain 1000ms infinite ease-out;
+  animation-delay: 401ms;
+  animation-duration: 997ms;
+}
+.confetti-piece:nth-child(11) {
+  left: 77%;
+  transform: rotate(-64deg);
+  animation: makeItRain 1000ms infinite ease-out;
+  animation-delay: 419ms;
+  animation-duration: 994ms;
+}
+.confetti-piece:nth-child(12) {
+  left: 84%;
+  transform: rotate(41deg);
+  animation: makeItRain 1000ms infinite ease-out;
+  animation-delay: 167ms;
+  animation-duration: 1107ms;
+}
+.confetti-piece:nth-child(13) {
+  left: 91%;
+  transform: rotate(79deg);
+  animation: makeItRain 1000ms infinite ease-out;
+  animation-delay: 215ms;
+  animation-duration: 1083ms;
+}
+.confetti-piece:nth-child(odd) {
+  background: #17d3ff;
+}
+.confetti-piece:nth-child(even) {
+  z-index: 1;
+}
+.confetti-piece:nth-child(4n) {
+  width: 5px;
+  height: 12px;
+  animation-duration: 2000ms;
+}
+.confetti-piece:nth-child(3n) {
+  width: 3px;
+  height: 10px;
+  animation-duration: 2500ms;
+  animation-delay: 1000ms;
+}
+.confetti-piece:nth-child(4n-7) {
+  background: #ff4e91;
+}
+
+@keyframes makeItRain {
+  from {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  to {
+    transform: translateY(200px);
+  }
+}
+/*endregion Confetti*/
 /*region DarkMode*/
 .dark-mode {
   background-color: #3a3a3a !important;
@@ -822,7 +979,7 @@ body {
     color: lightslategray;
     opacity: 0.65;
   }
-  input[type=submit] {
+  input[type=button] {
     background-color: #fbfaf6;
     color: #3a3a3a;
     padding: 12px 20px;
@@ -833,11 +990,23 @@ body {
     font-size: 16px;
     font-weight: bold;
   }
-  input[type=submit]:hover {
+  input[type=button]:hover {
     background-color: #76b9b9;
     color: #fbfaf6;
   }
   /*#endregion Form*/
+  .invalid-input {
+    outline: 2px solid red;
+  }
+  .input-error {
+    display: none;
+    padding: 4px 8px;
+    background-color: rgba(118, 185, 185, 0.6);
+    border-radius: 4px;
+    color: #cc0000;
+    font-size: 12px;
+    font-family: RobotoSlab, sans-serif;
+  }
   .weather-widget {
     display: flex;
     flex-direction: column;

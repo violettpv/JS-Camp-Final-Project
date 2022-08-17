@@ -99,6 +99,76 @@ window.addEventListener("scroll", () => {
     handleScrollAnimation();
 });
 
+// Contact Form
+const nameSpan = document.getElementById('fname-error');
+const emailSpan = document.getElementById('email-error');
+const subjSpan = document.getElementById('subj-error');
+const msgSpan = document.getElementById('msg-error');
+
+const nameInput = document.getElementById('fname');
+const emailInput = document.getElementById('email');
+const subjectInput = document.getElementById('subj');
+const messageInput = document.getElementById('msg');
+
+function sendMessage() {
+    nameSpan.style.display = "none";
+    emailSpan.style.display = "none";
+    subjSpan.style.display = "none";
+    msgSpan.style.display = "none";
+
+    let isValid = true;
+    const checkName = /[A-Z]+[a-zA-Z]*/g;
+    const checkEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    const checkSubject = /[A-Za-zА-Яа-яЇїЄєІі\s]+/g;
+
+    let name = nameInput.value;
+    let email = emailInput.value;
+    let subject = subjectInput.value;
+    let message = messageInput.value;
+    let temp;
+
+    temp = name.match(checkName) || [""];
+    if (name !== temp[0] || name === "") {
+        nameSpan.style.display = "inline";
+        isValid = false;
+    }
+    temp = email.match(checkEmail) || [""];
+    if (email !== temp[0] || email === "") {
+        emailSpan.style.display = "inline";
+        isValid = false;
+    }
+    temp = subject.match(checkSubject) || [""];
+    if (subject !== temp[0] || subject === "") {
+        subjSpan.style.display = "inline";
+        isValid = false;
+    }
+    if (message === "") {
+        msgSpan.style.display = "inline";
+        isValid = false;
+    }
+    if (!isValid) {
+        return;
+    }
+    let data = {
+        name: name,
+        email: email,
+        subject: subject,
+        message: message
+    };
+    saveData(data);
+    if (data.subject.toLowerCase().includes("зробити замовлення")) {
+        document.getElementsByClassName("thanks")[0].style.display = "flex";
+        setTimeout(() => {
+            document.getElementsByClassName("thanks")[0].style.display = "none";
+        }, 3000);
+   }
+
+}
+function saveData(data) {
+    localStorage.setItem("message", JSON.stringify(data));
+}
+
+
 // API
 async function getWeather(lat = 50.450001, lon = 30.523333) {
     let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=b85e521716c4a0f78aa64cb1d4fa7d69`;
@@ -156,7 +226,7 @@ function afk(timeMs, callback) {
 }
 
 const afkScreen = document.getElementsByClassName("afk")[0];
-// 60000
+// 60000 6000000
 afk(6000000, () => {
     setTimeout(() => {
         if (isAfk) {
