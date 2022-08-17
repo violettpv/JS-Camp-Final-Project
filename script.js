@@ -242,3 +242,23 @@ function setAfk (status) {
         afkScreen.style.display = "none";
     }
 }
+
+const projectsArea = document.getElementsByClassName("portfolio-section__projects")[0];
+function formProjectComponent(data) {
+    return `<div href="${data.url}" class="portfolio-section__project"> <div style="background-image: url("${data.image}");     background-position: center;     background-repeat: no-repeat;     background-size: cover;" class="portfolio-section__project-img"> <div class="portfolio-section__project-description">Date: ${data.description.date}<br>Tech: ${data.description.technologies}<br>Price: ${data.description.price}</div> </div> <div class="portfolio-section__project-title"> <div class="portfolio-section__project-icon"><img src="${data.ico}" alt="books"></div> <div class="portfolio-section__project-name">${data.description.name}</div> </div> </div>`;
+}
+
+// read data from json file
+async function readData() {
+    return await fetch("./projects.json")
+        .then(response => response.json());
+}
+
+readData().then(projectsData => {
+    console.log(projectsData.data);
+    for (let i = 0; i < projectsData.data.length; i++) {
+        projectsArea.innerHTML += formProjectComponent(projectsData.data[i]);
+    }
+});
+
+

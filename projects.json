@@ -1,0 +1,26 @@
+{
+  "data" : [
+    {
+      "description" : {
+        "name" : "The White House",
+        "date" : "2015-01-01",
+        "technologies" : "president, white house, technology",
+        "price": 100.0
+      },
+      "image" : "./pics/kpi_early_20century.jpg",
+      "ico" : "./icons_svg/book.svg",
+      "url" : "https://www.whitehouse.gov"
+    },
+    {
+      "description" : {
+        "name" : "Color lines",
+        "date" : "2015-03-12",
+        "technologies" : "president, white house, technology",
+        "price": 99.9
+      },
+      "image" : "./pics/computer2.jpg",
+      "ico" : "./icons_svg/retro-game.svg",
+      "url" : "https://www.google.com"
+    }
+  ]
+}
