@@ -48,7 +48,6 @@ body {
   background-image: url("../pics/noisy.png"), url("../pics/sewing_stitch.png"), url("../pics/sewing_stitch.png");
   background-repeat: repeat, repeat-x, repeat-x;
   background-position: left top, left top, left bottom;
-  //image-rendering: pixelated;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -57,8 +56,6 @@ body {
 }
 #slider-section {
   background-color: $main-slider-color;
-  height: 100vh;
-  min-height: 700px;
 }
 #about-section {
   background-color: $main-about-color;
@@ -311,6 +308,12 @@ $duration: 1000;
 /*endregion DarkMode*/
 
 @media only screen and (min-width: 0) {
+  .slider-section__title {
+    font-size: 74px;
+    font-family: SeasideResortNF, sans-serif;
+    color: $nav-color;
+    letter-spacing: 4px;
+  }
   .about-section__title, .portfolio-section__title, .blog-section__title, .contacts-section__title {
     margin: 10px auto;
     font-size: 70px;
@@ -322,7 +325,7 @@ $duration: 1000;
   .contacts-section__title {
     color: $nav-color;
     text-shadow: 2px 2px 0 $section-title-color, 4px 4px 0 $nav-color;
-    font-size: 68px;
+    font-size: 66px;
   }
 
   .title-underline {
@@ -445,13 +448,6 @@ $duration: 1000;
     align-items: center;
     flex-direction: column;
     padding: 20px 10px;
-  }
-
-  .slider-section__title {
-    font-size: 70px;
-    font-family: SeasideResortNF, sans-serif;
-    color: $nav-color;
-    letter-spacing: 4px;
   }
 
   .slider-section__ribbon-dots {
@@ -1175,7 +1171,6 @@ $duration: 1000;
   }
 
   .slider-section__title {
-    font-size: 58px;
     font-family: SeasideResortNF, sans-serif;
     color: $nav-color;
   }
@@ -1193,14 +1188,17 @@ $duration: 1000;
     font-size: 62px;
   }
 
+  #slider-section {
+    min-height: 745px;
+  }
+
   .slideshow-container {
     width: 700px;
     height: 350px;
   }
 
-
   .slider-section__title {
-    font-size: 68px;
+    font-size: 84px;
     font-family: SeasideResortNF, sans-serif;
     color: $nav-color;
   }

@@ -48,8 +48,6 @@ body {
 
 #slider-section {
   background-color: #7ababa;
-  height: 100vh;
-  min-height: 700px;
 }
 
 #about-section {
@@ -197,94 +195,94 @@ body {
 }
 .confetti-piece:nth-child(1) {
   left: 7%;
-  transform: rotate(-66deg);
+  transform: rotate(-4deg);
   animation: makeItRain 1000ms infinite ease-out;
-  animation-delay: 111ms;
-  animation-duration: 1189ms;
+  animation-delay: 440ms;
+  animation-duration: 1157ms;
 }
 .confetti-piece:nth-child(2) {
   left: 14%;
-  transform: rotate(-29deg);
+  transform: rotate(12deg);
   animation: makeItRain 1000ms infinite ease-out;
-  animation-delay: 44ms;
-  animation-duration: 1066ms;
+  animation-delay: 492ms;
+  animation-duration: 1152ms;
 }
 .confetti-piece:nth-child(3) {
   left: 21%;
-  transform: rotate(-9deg);
+  transform: rotate(-70deg);
   animation: makeItRain 1000ms infinite ease-out;
-  animation-delay: 339ms;
-  animation-duration: 1013ms;
+  animation-delay: 493ms;
+  animation-duration: 982ms;
 }
 .confetti-piece:nth-child(4) {
   left: 28%;
-  transform: rotate(-35deg);
+  transform: rotate(78deg);
   animation: makeItRain 1000ms infinite ease-out;
-  animation-delay: 420ms;
-  animation-duration: 760ms;
+  animation-delay: 110ms;
+  animation-duration: 806ms;
 }
 .confetti-piece:nth-child(5) {
   left: 35%;
-  transform: rotate(5deg);
+  transform: rotate(15deg);
   animation: makeItRain 1000ms infinite ease-out;
-  animation-delay: 298ms;
-  animation-duration: 1106ms;
+  animation-delay: 317ms;
+  animation-duration: 725ms;
 }
 .confetti-piece:nth-child(6) {
   left: 42%;
-  transform: rotate(-69deg);
+  transform: rotate(-3deg);
   animation: makeItRain 1000ms infinite ease-out;
-  animation-delay: 422ms;
-  animation-duration: 1177ms;
+  animation-delay: 248ms;
+  animation-duration: 718ms;
 }
 .confetti-piece:nth-child(7) {
   left: 49%;
-  transform: rotate(44deg);
+  transform: rotate(45deg);
   animation: makeItRain 1000ms infinite ease-out;
-  animation-delay: 177ms;
-  animation-duration: 905ms;
+  animation-delay: 127ms;
+  animation-duration: 746ms;
 }
 .confetti-piece:nth-child(8) {
   left: 56%;
-  transform: rotate(18deg);
+  transform: rotate(55deg);
   animation: makeItRain 1000ms infinite ease-out;
-  animation-delay: 163ms;
-  animation-duration: 894ms;
+  animation-delay: 244ms;
+  animation-duration: 705ms;
 }
 .confetti-piece:nth-child(9) {
   left: 63%;
-  transform: rotate(42deg);
+  transform: rotate(39deg);
   animation: makeItRain 1000ms infinite ease-out;
-  animation-delay: 367ms;
-  animation-duration: 1186ms;
+  animation-delay: 38ms;
+  animation-duration: 711ms;
 }
 .confetti-piece:nth-child(10) {
   left: 70%;
-  transform: rotate(33deg);
+  transform: rotate(57deg);
   animation: makeItRain 1000ms infinite ease-out;
-  animation-delay: 472ms;
-  animation-duration: 1169ms;
+  animation-delay: 108ms;
+  animation-duration: 1074ms;
 }
 .confetti-piece:nth-child(11) {
   left: 77%;
-  transform: rotate(46deg);
+  transform: rotate(40deg);
   animation: makeItRain 1000ms infinite ease-out;
-  animation-delay: 338ms;
-  animation-duration: 838ms;
+  animation-delay: 495ms;
+  animation-duration: 1126ms;
 }
 .confetti-piece:nth-child(12) {
   left: 84%;
-  transform: rotate(54deg);
+  transform: rotate(49deg);
   animation: makeItRain 1000ms infinite ease-out;
-  animation-delay: 101ms;
-  animation-duration: 792ms;
+  animation-delay: 321ms;
+  animation-duration: 842ms;
 }
 .confetti-piece:nth-child(13) {
   left: 91%;
-  transform: rotate(79deg);
+  transform: rotate(4deg);
   animation: makeItRain 1000ms infinite ease-out;
-  animation-delay: 129ms;
-  animation-duration: 851ms;
+  animation-delay: 115ms;
+  animation-duration: 1103ms;
 }
 .confetti-piece:nth-child(odd) {
   background: #17d3ff;
@@ -366,6 +364,12 @@ body {
 
 /*endregion DarkMode*/
 @media only screen and (min-width: 0) {
+  .slider-section__title {
+    font-size: 74px;
+    font-family: SeasideResortNF, sans-serif;
+    color: #f6edd8;
+    letter-spacing: 4px;
+  }
   .about-section__title, .portfolio-section__title, .blog-section__title, .contacts-section__title {
     margin: 10px auto;
     font-size: 70px;
@@ -377,7 +381,7 @@ body {
   .contacts-section__title {
     color: #f6edd8;
     text-shadow: 2px 2px 0 #3a3a3a, 4px 4px 0 #f6edd8;
-    font-size: 68px;
+    font-size: 66px;
   }
   .title-underline {
     width: 120px;
@@ -484,12 +488,6 @@ body {
     align-items: center;
     flex-direction: column;
     padding: 20px 10px;
-  }
-  .slider-section__title {
-    font-size: 70px;
-    font-family: SeasideResortNF, sans-serif;
-    color: #f6edd8;
-    letter-spacing: 4px;
   }
   .slider-section__ribbon-dots {
     display: flex;
@@ -1147,7 +1145,6 @@ body {
     height: 300px;
   }
   .slider-section__title {
-    font-size: 58px;
     font-family: SeasideResortNF, sans-serif;
     color: #f6edd8;
   }
@@ -1162,12 +1159,15 @@ body {
     width: 7rem;
     font-size: 62px;
   }
+  #slider-section {
+    min-height: 745px;
+  }
   .slideshow-container {
     width: 700px;
     height: 350px;
   }
   .slider-section__title {
-    font-size: 68px;
+    font-size: 84px;
     font-family: SeasideResortNF, sans-serif;
     color: #f6edd8;
   }
