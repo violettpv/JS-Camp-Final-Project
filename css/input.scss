@@ -103,7 +103,6 @@ body {
     font-size: 18px;
     margin: 10px;
     cursor: pointer;
-    -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
 
     &:hover {
@@ -438,7 +437,6 @@ $duration: 1000;
     height: 5px;
     background-color: #395B64;
   }
-
   /*endregion Header*/
 
   /*#region SliderSection*/
@@ -692,7 +690,7 @@ $duration: 1000;
     font-family: RobotoSlab, sans-serif;
     color: $section-title-color;
     p {
-      text-wrap: normal;
+      overflow-wrap: normal;
       text-align: center;
     }
   }
@@ -780,8 +778,6 @@ $duration: 1000;
         float: left;
         width: 4px;
         height: 4px;
-        -moz-border-radius: 2px;
-        -webkit-border-radius: 2px;
         border-radius: 2px;
         background-color: #868686;
       }
@@ -962,7 +958,6 @@ $duration: 1000;
     text-transform: uppercase;
     font-weight: bold;
   }
-
   /*#endregion Posts*/
 
   .js-scroll {
@@ -980,17 +975,14 @@ $duration: 1000;
 
   @keyframes slide-in-right {
     0% {
-      -webkit-transform: translateX(100px);
       transform: translateX(100px);
       opacity: 0;
     }
     100% {
-      -webkit-transform: translateX(0);
       transform: translateX(0);
       opacity: 1;
     }
   }
-
   /*#endregion BlogSection*/
 
   /*#region ContactsSection*/
@@ -1053,18 +1045,16 @@ $duration: 1000;
   }
   /*#endregion Form*/
 
-  .invalid-input {
-    outline: 2px solid red;
-  }
   .input-error {
     display: none;
-
     padding: 4px 8px;
     background-color: rgba(118, 185, 185, 0.60);
     border-radius: 4px;
     color: #cc0000;
     font-size: 12px;
     font-family: RobotoSlab, sans-serif;
+    font-weight: bold;
+    letter-spacing: 1px;
   }
 
   .weather-widget {
@@ -1189,7 +1179,6 @@ $duration: 1000;
   .slider-section__dots {
     display: flex;
   }
-
 }
 
 @media only screen and (min-width: 769px) {
@@ -1218,5 +1207,4 @@ $duration: 1000;
   .slider-section__dots {
     display: flex;
   }
-
 }

@@ -97,7 +97,6 @@ body {
   font-size: 18px;
   margin: 10px;
   cursor: pointer;
-  -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
 }
 .afk button:hover {
@@ -198,94 +197,94 @@ body {
 }
 .confetti-piece:nth-child(1) {
   left: 7%;
-  transform: rotate(33deg);
+  transform: rotate(40deg);
   animation: makeItRain 1000ms infinite ease-out;
-  animation-delay: 386ms;
-  animation-duration: 762ms;
+  animation-delay: 292ms;
+  animation-duration: 726ms;
 }
 .confetti-piece:nth-child(2) {
   left: 14%;
-  transform: rotate(47deg);
+  transform: rotate(30deg);
   animation: makeItRain 1000ms infinite ease-out;
-  animation-delay: 295ms;
-  animation-duration: 1068ms;
+  animation-delay: 266ms;
+  animation-duration: 1149ms;
 }
 .confetti-piece:nth-child(3) {
   left: 21%;
-  transform: rotate(47deg);
+  transform: rotate(7deg);
   animation: makeItRain 1000ms infinite ease-out;
-  animation-delay: 471ms;
-  animation-duration: 1179ms;
+  animation-delay: 196ms;
+  animation-duration: 1185ms;
 }
 .confetti-piece:nth-child(4) {
   left: 28%;
-  transform: rotate(-37deg);
+  transform: rotate(76deg);
   animation: makeItRain 1000ms infinite ease-out;
-  animation-delay: 319ms;
-  animation-duration: 707ms;
+  animation-delay: 352ms;
+  animation-duration: 1013ms;
 }
 .confetti-piece:nth-child(5) {
   left: 35%;
-  transform: rotate(43deg);
+  transform: rotate(44deg);
   animation: makeItRain 1000ms infinite ease-out;
-  animation-delay: 60ms;
-  animation-duration: 1110ms;
+  animation-delay: 121ms;
+  animation-duration: 941ms;
 }
 .confetti-piece:nth-child(6) {
   left: 42%;
-  transform: rotate(-73deg);
+  transform: rotate(73deg);
   animation: makeItRain 1000ms infinite ease-out;
-  animation-delay: 156ms;
-  animation-duration: 834ms;
+  animation-delay: 395ms;
+  animation-duration: 1040ms;
 }
 .confetti-piece:nth-child(7) {
   left: 49%;
-  transform: rotate(36deg);
+  transform: rotate(-8deg);
   animation: makeItRain 1000ms infinite ease-out;
-  animation-delay: 160ms;
-  animation-duration: 841ms;
+  animation-delay: 496ms;
+  animation-duration: 846ms;
 }
 .confetti-piece:nth-child(8) {
   left: 56%;
-  transform: rotate(-72deg);
+  transform: rotate(61deg);
   animation: makeItRain 1000ms infinite ease-out;
-  animation-delay: 197ms;
-  animation-duration: 966ms;
+  animation-delay: 320ms;
+  animation-duration: 802ms;
 }
 .confetti-piece:nth-child(9) {
   left: 63%;
-  transform: rotate(-71deg);
+  transform: rotate(-57deg);
   animation: makeItRain 1000ms infinite ease-out;
-  animation-delay: 481ms;
-  animation-duration: 904ms;
+  animation-delay: 448ms;
+  animation-duration: 1092ms;
 }
 .confetti-piece:nth-child(10) {
   left: 70%;
-  transform: rotate(73deg);
+  transform: rotate(33deg);
   animation: makeItRain 1000ms infinite ease-out;
-  animation-delay: 265ms;
-  animation-duration: 768ms;
+  animation-delay: 79ms;
+  animation-duration: 879ms;
 }
 .confetti-piece:nth-child(11) {
   left: 77%;
-  transform: rotate(61deg);
+  transform: rotate(-14deg);
   animation: makeItRain 1000ms infinite ease-out;
-  animation-delay: 87ms;
-  animation-duration: 748ms;
+  animation-delay: 165ms;
+  animation-duration: 717ms;
 }
 .confetti-piece:nth-child(12) {
   left: 84%;
-  transform: rotate(3deg);
+  transform: rotate(50deg);
   animation: makeItRain 1000ms infinite ease-out;
-  animation-delay: 482ms;
-  animation-duration: 885ms;
+  animation-delay: 437ms;
+  animation-duration: 944ms;
 }
 .confetti-piece:nth-child(13) {
   left: 91%;
-  transform: rotate(-74deg);
+  transform: rotate(54deg);
   animation: makeItRain 1000ms infinite ease-out;
-  animation-delay: 195ms;
-  animation-duration: 1041ms;
+  animation-delay: 497ms;
+  animation-duration: 919ms;
 }
 .confetti-piece:nth-child(odd) {
   background: #17d3ff;
@@ -712,7 +711,7 @@ body {
     color: #3a3a3a;
   }
   .about-section__column-text p {
-    text-wrap: normal;
+    overflow-wrap: normal;
     text-align: center;
   }
   /*#endregion AboutSection*/
@@ -792,8 +791,6 @@ body {
     float: left;
     width: 4px;
     height: 4px;
-    -moz-border-radius: 2px;
-    -webkit-border-radius: 2px;
     border-radius: 2px;
     background-color: #868686;
   }
@@ -969,12 +966,10 @@ body {
   }
   @keyframes slide-in-right {
     0% {
-      -webkit-transform: translateX(100px);
       transform: translateX(100px);
       opacity: 0;
     }
     100% {
-      -webkit-transform: translateX(0);
       transform: translateX(0);
       opacity: 1;
     }
@@ -1032,9 +1027,6 @@ body {
     color: #fbfaf6;
   }
   /*#endregion Form*/
-  .invalid-input {
-    outline: 2px solid red;
-  }
   .input-error {
     display: none;
     padding: 4px 8px;
@@ -1043,6 +1035,8 @@ body {
     color: #cc0000;
     font-size: 12px;
     font-family: RobotoSlab, sans-serif;
+    font-weight: bold;
+    letter-spacing: 1px;
   }
   .weather-widget {
     display: flex;

@@ -181,8 +181,9 @@ function afk(timeMs, callback) {
 }
 
 const afkScreen = document.getElementsByClassName("afk")[0];
-// TODO: 60000 6000000
-afk(6000000, () => {
+// TODO: close after 30 seconds
+// 60000, and test: 6000000
+afk(60000, () => {
     setTimeout(() => {
         if (isAfk) {
             window.close();
@@ -201,7 +202,7 @@ function setAfk (status) {
 // Filters & Projects
 const projectsArea = document.getElementsByClassName("portfolio-section__projects")[0];
 function formProjectComponent(data) {
-    let div = `<div href="${data.url}" class="portfolio-section__project"><div style="background-image: url(${data.image}); background-position: center; background-repeat: no-repeat; background-size: cover;" class="portfolio-section__project-img"><div class="portfolio-section__project-description">Date: ${data.description.date}<br>Tech: ${data.description.technologies}<br>Price: ${data.description.price}</div></div><div class="portfolio-section__project-title"><div class="portfolio-section__project-icon"><img src="${data.ico}" alt="books"></div><a href="${data.url}" target="_blank" class="portfolio-section__project-name">${data.description.name}</a></div></div>`;
+    let div = `<div class="portfolio-section__project"><div style="background-image: url(${data.image}); background-position: center; background-repeat: no-repeat; background-size: cover;" class="portfolio-section__project-img"><div class="portfolio-section__project-description">Date: ${data.description.date}<br>Tech: ${data.description.technologies}<br>Price: ${data.description.price}</div></div><div class="portfolio-section__project-title"><div class="portfolio-section__project-icon"><img src="${data.ico}" alt="books"></div><a href="${data.url}" target="_blank" class="portfolio-section__project-name">${data.description.name}</a></div></div>`;
     return div;
 }
 
