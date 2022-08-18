@@ -198,7 +198,6 @@ function setAfk (status) {
     }
 }
 
-
 // Filters & Projects
 const projectsArea = document.getElementsByClassName("portfolio-section__projects")[0];
 function formProjectComponent(data) {
@@ -259,7 +258,6 @@ function loadProjects(filter = null) {
 }
 loadProjects();
 
-
 function browseAllButton() {
     let projectContainers = projectsArea.getElementsByClassName("portfolio-section__project");
     if (!isUnrolled) {
@@ -280,22 +278,28 @@ function browseAllButton() {
     }
 }
 
-// Blog
+// Blog and Posts
 const blogArea = document.getElementsByClassName("blog-section__content")[0];
 function formBlogComponent(data) {
     let div = `<div class="blog-section__post js-scroll slide-right"> <div class="blog-section__post-img-frame"> <div class="blog-section__post-img" style="background-image: url(${data.image}); background-position: center; background-repeat: no-repeat; background-size: cover;"> </div> </div> <div class="blog-section__post-description"> <div class="blog-section__post-name"> ${data.name} </div> <div class="blog-section__post-info"> <div class="blog-section__post-date">${data.date} // ${data.creator} // ${data.tags} </div> <div class="blog-section__post-responses"> ${data.responses} response(-s) </div> </div> <hr class="section-hr"> <div class="blog-section__post-text"> ${data.text} <a class="blog-section__more-btn">(More...)</a> </div> </div> </div>`;
     return div;
 }
 let blogData = JSON.parse(blogJson);
+let blogFirst = "";
+let blogLeftover = "";
+let scrollElements;
 for (let i = 0; i < blogData.data.length; i++) {
-    blogArea.innerHTML += formBlogComponent(blogData.data[i]);
+    if (i > 2) {
+        blogLeftover += formBlogComponent(blogData.data[i]);
+    }
+    else {
+        blogFirst += formBlogComponent(blogData.data[i]);
+    }
 }
-
-
+blogArea.innerHTML = blogFirst;
+scrollElements = document.querySelectorAll(".js-scroll");
 
 // Fade in on scroll
-const scrollElements = document.querySelectorAll(".js-scroll");
-
 const elementInView = (el, dividend = 1) => {
     const elementTop = el.getBoundingClientRect().top;
 
@@ -335,6 +339,21 @@ window.addEventListener("scroll", () => {
     handleScrollAnimation();
 });
 
-
+let isAllPosts = false;
+const showAllPostsBtn = document.getElementsByClassName("posts-btn")[0];
+function showAllPosts() {
+    isAllPosts = !isAllPosts;
+    if (isAllPosts) {
+        blogArea.innerHTML += blogLeftover;
+        showAllPostsBtn.innerHTML = "HIDE ALL POSTS";
+        scrollElements = document.querySelectorAll(".js-scroll");
+        handleScrollAnimation();
+    }
+    else {
+        blogArea.innerHTML = blogFirst;
+        showAllPostsBtn.innerHTML = "SHOW ALL POSTS";
+        scrollElements = document.querySelectorAll(".js-scroll");
+    }
+}
 
 
