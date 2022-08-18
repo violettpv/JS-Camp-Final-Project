@@ -55,47 +55,6 @@ function changeMode() {
     });
 }
 
-// Fade in on scroll
-const scrollElements = document.querySelectorAll(".js-scroll");
-
-const elementInView = (el, dividend = 1) => {
-    const elementTop = el.getBoundingClientRect().top;
-
-    return (
-        elementTop <=
-        (window.innerHeight || document.documentElement.clientHeight) / dividend
-    );
-};
-
-const elementOutofView = (el) => {
-    const elementTop = el.getBoundingClientRect().top;
-
-    return (
-        elementTop > (window.innerHeight || document.documentElement.clientHeight)
-    );
-};
-
-const displayScrollElement = (element) => {
-    element.classList.add("scrolled");
-};
-
-const hideScrollElement = (element) => {
-    element.classList.remove("scrolled");
-};
-
-const handleScrollAnimation = () => {
-    scrollElements.forEach((el) => {
-        if (elementInView(el, 1.25)) {
-            displayScrollElement(el);
-        } else if (elementOutofView(el)) {
-            hideScrollElement(el)
-        }
-    })
-}
-window.addEventListener("scroll", () => {
-    handleScrollAnimation();
-});
-
 // Contact Form
 const nameSpan = document.getElementById('fname-error');
 const emailSpan = document.getElementById('email-error');
@@ -222,7 +181,7 @@ function afk(timeMs, callback) {
 }
 
 const afkScreen = document.getElementsByClassName("afk")[0];
-// 60000 6000000
+// TODO: 60000 6000000
 afk(6000000, () => {
     setTimeout(() => {
         if (isAfk) {
@@ -239,10 +198,10 @@ function setAfk (status) {
     }
 }
 
+
 // Filters & Projects
 const projectsArea = document.getElementsByClassName("portfolio-section__projects")[0];
 function formProjectComponent(data) {
-
     let div = `<div href="${data.url}" class="portfolio-section__project"><div style="background-image: url(${data.image}); background-position: center; background-repeat: no-repeat; background-size: cover;" class="portfolio-section__project-img"><div class="portfolio-section__project-description">Date: ${data.description.date}<br>Tech: ${data.description.technologies}<br>Price: ${data.description.price}</div></div><div class="portfolio-section__project-title"><div class="portfolio-section__project-icon"><img src="${data.ico}" alt="books"></div><a href="${data.url}" target="_blank" class="portfolio-section__project-name">${data.description.name}</a></div></div>`;
     return div;
 }
@@ -320,6 +279,62 @@ function browseAllButton() {
         browseBtn.innerHTML = "BROWSE ALL";
     }
 }
+
+// Blog
+const blogArea = document.getElementsByClassName("blog-section__content")[0];
+function formBlogComponent(data) {
+    let div = `<div class="blog-section__post js-scroll slide-right"> <div class="blog-section__post-img-frame"> <div class="blog-section__post-img" style="background-image: url(${data.image}); background-position: center; background-repeat: no-repeat; background-size: cover;"> </div> </div> <div class="blog-section__post-description"> <div class="blog-section__post-name"> ${data.name} </div> <div class="blog-section__post-info"> <div class="blog-section__post-date">${data.date} // ${data.creator} // ${data.tags} </div> <div class="blog-section__post-responses"> ${data.responses} response(-s) </div> </div> <hr class="section-hr"> <div class="blog-section__post-text"> ${data.text} <a class="blog-section__more-btn">(More...)</a> </div> </div> </div>`;
+    return div;
+}
+let blogData = JSON.parse(blogJson);
+for (let i = 0; i < blogData.data.length; i++) {
+    blogArea.innerHTML += formBlogComponent(blogData.data[i]);
+}
+
+
+
+// Fade in on scroll
+const scrollElements = document.querySelectorAll(".js-scroll");
+
+const elementInView = (el, dividend = 1) => {
+    const elementTop = el.getBoundingClientRect().top;
+
+    return (
+        elementTop <=
+        (window.innerHeight || document.documentElement.clientHeight) / dividend
+    );
+};
+
+const elementOutofView = (el) => {
+    const elementTop = el.getBoundingClientRect().top;
+
+    return (
+        elementTop > (window.innerHeight || document.documentElement.clientHeight)
+    );
+};
+
+const displayScrollElement = (element) => {
+    element.classList.add("scrolled");
+};
+
+const hideScrollElement = (element) => {
+    element.classList.remove("scrolled");
+};
+
+const handleScrollAnimation = () => {
+    scrollElements.forEach((el) => {
+        if (elementInView(el, 1.25)) {
+            displayScrollElement(el);
+        }
+        else if (elementOutofView(el)) {
+            hideScrollElement(el)
+        }
+    })
+}
+window.addEventListener("scroll", () => {
+    handleScrollAnimation();
+});
+
 
 
 
