@@ -1045,6 +1045,10 @@ $duration: 1000;
   }
   /*#endregion Form*/
 
+  .invalid-outline {
+    outline: 2px solid red;
+  }
+
   .input-error {
     display: none;
     padding: 4px 8px;

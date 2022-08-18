@@ -1,4 +1,4 @@
-// Progress bar
+// === Progress bar
 window.onscroll = function() { progressBar() };
 function progressBar() {
     let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
@@ -7,7 +7,7 @@ function progressBar() {
     document.getElementById("bar").style.width = scrolled + "%";
 }
 
-// Slideshow
+// === Slideshow
 const slide = document.getElementsByClassName('slide')[0];
 const title = document.getElementById('slideshow-title');
 const prev = document.getElementsByClassName('prev')[0];
@@ -36,7 +36,7 @@ function changeSlide(action) {
     }
 }
 
-// Dark mode
+// === Dark mode
 let darkModeForced = false;
 let sections = [];
 let findSections = document.getElementsByClassName('sections');
@@ -55,7 +55,7 @@ function changeMode() {
     });
 }
 
-// Contact Form
+// === Contact Form
 const nameSpan = document.getElementById('fname-error');
 const emailSpan = document.getElementById('email-error');
 const subjSpan = document.getElementById('subj-error');
@@ -71,6 +71,10 @@ function sendMessage() {
     emailSpan.style.display = "none";
     subjSpan.style.display = "none";
     msgSpan.style.display = "none";
+    nameInput.classList.remove("invalid-outline");
+    emailInput.classList.remove("invalid-outline");
+    subjectInput.classList.remove("invalid-outline");
+    messageInput.classList.remove("invalid-outline");
 
     let isValid = true;
     const checkName = /[A-Z]+[a-zA-Z]*/g;
@@ -85,26 +89,31 @@ function sendMessage() {
 
     temp = name.match(checkName) || [""];
     if (name !== temp[0] || name === "") {
+        nameInput.classList.add("invalid-outline");
         nameSpan.style.display = "inline";
         isValid = false;
     }
     temp = email.match(checkEmail) || [""];
     if (email !== temp[0] || email === "") {
+        emailInput.classList.add("invalid-outline");
         emailSpan.style.display = "inline";
         isValid = false;
     }
     temp = subject.match(checkSubject) || [""];
     if (subject !== temp[0] || subject === "") {
+        subjectInput.classList.add("invalid-outline");
         subjSpan.style.display = "inline";
         isValid = false;
     }
     if (message === "") {
+        messageInput.classList.add("invalid-outline");
         msgSpan.style.display = "inline";
         isValid = false;
     }
     if (!isValid) {
         return;
     }
+
     let data = {
         name: name,
         email: email,
@@ -124,7 +133,7 @@ function saveData(data) {
     localStorage.setItem("message", JSON.stringify(data));
 }
 
-// API
+// === API
 async function getWeather(lat = 50.450001, lon = 30.523333) {
     let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=b85e521716c4a0f78aa64cb1d4fa7d69`;
     let res = await fetch(url).then(response => response.json());
@@ -147,7 +156,7 @@ async function getWeather(lat = 50.450001, lon = 30.523333) {
 }
 getWeather();
 
-// User activity
+// === User activity
 let startTime;
 let isAfk = false;
 
@@ -181,7 +190,6 @@ function afk(timeMs, callback) {
 }
 
 const afkScreen = document.getElementsByClassName("afk")[0];
-// TODO: close after 30 seconds
 // 60000, and test: 6000000
 afk(60000, () => {
     setTimeout(() => {
@@ -199,7 +207,7 @@ function setAfk (status) {
     }
 }
 
-// Filters & Projects
+// === Filters & Projects
 const projectsArea = document.getElementsByClassName("portfolio-section__projects")[0];
 function formProjectComponent(data) {
     let div = `<div class="portfolio-section__project"><div style="background-image: url(${data.image}); background-position: center; background-repeat: no-repeat; background-size: cover;" class="portfolio-section__project-img"><div class="portfolio-section__project-description">Date: ${data.description.date}<br>Tech: ${data.description.technologies}<br>Price: ${data.description.price}</div></div><div class="portfolio-section__project-title"><div class="portfolio-section__project-icon"><img src="${data.ico}" alt="books"></div><a href="${data.url}" target="_blank" class="portfolio-section__project-name">${data.description.name}</a></div></div>`;
@@ -260,8 +268,10 @@ function loadProjects(filter = null) {
 loadProjects();
 
 function browseAllButton() {
-    let projectContainers = projectsArea.getElementsByClassName("portfolio-section__project");
+    let projectContainers;
     if (!isUnrolled) {
+        loadProjects(currentFilter);
+        projectContainers = projectsArea.getElementsByClassName("portfolio-section__project");
         for (let i = 0; i < projectContainers.length; i++) {
             projectContainers[i].style.display = "flex";
         }
@@ -269,6 +279,7 @@ function browseAllButton() {
         browseBtn.innerHTML = "HIDE ALL";
     }
     else {
+        projectContainers = projectsArea.getElementsByClassName("portfolio-section__project");
         for (let i = 0; i < projectContainers.length; i++) {
             if (i > 5) {
                 projectContainers[i].style.display = "none";
@@ -279,7 +290,7 @@ function browseAllButton() {
     }
 }
 
-// Blog and Posts
+// === Blog and Posts
 const blogArea = document.getElementsByClassName("blog-section__content")[0];
 function formBlogComponent(data) {
     let div = `<div class="blog-section__post js-scroll slide-right"> <div class="blog-section__post-img-frame"> <div class="blog-section__post-img" style="background-image: url(${data.image}); background-position: center; background-repeat: no-repeat; background-size: cover;"> </div> </div> <div class="blog-section__post-description"> <div class="blog-section__post-name"> ${data.name} </div> <div class="blog-section__post-info"> <div class="blog-section__post-date">${data.date} // ${data.creator} // ${data.tags} </div> <div class="blog-section__post-responses"> ${data.responses} response(-s) </div> </div> <hr class="section-hr"> <div class="blog-section__post-text"> ${data.text} <a class="blog-section__more-btn">(More...)</a> </div> </div> </div>`;
@@ -300,7 +311,7 @@ for (let i = 0; i < blogData.data.length; i++) {
 blogArea.innerHTML = blogFirst;
 scrollElements = document.querySelectorAll(".js-scroll");
 
-// Fade in on scroll
+// === Fade in on scroll
 const elementInView = (el, dividend = 1) => {
     const elementTop = el.getBoundingClientRect().top;
 
@@ -356,5 +367,4 @@ function showAllPosts() {
         scrollElements = document.querySelectorAll(".js-scroll");
     }
 }
-
 
